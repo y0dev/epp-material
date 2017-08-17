@@ -12,12 +12,12 @@ using namespace std;
 
 // length is the number of elements in the array
 int findAverageScore(int scores[], int length ){
-  // create variable to store highest and lowest scores
-  int highest = 0;
-  int lowest = scores[0];
-  int total;
+    // create variable to store highest and lowest scores
+    int highest = 0;
+    int lowest = scores[0];
+    int total;
 
-  for (int i = 0; i < length; i++) {
+    for (int i = 0; i < length; i++) {
     total += scores[i];
 
     // Check to see if score is greater than the previous highest score
