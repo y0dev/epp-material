@@ -45,6 +45,10 @@ Information on the Exam in Programming Proficiency and CPSC 301
 
 ## Programs
 
+* Binary Tree
+
+* File I/O
+
 * Gymnastic Program
 
 * Linked List
@@ -55,3 +59,5 @@ Information on the Exam in Programming Proficiency and CPSC 301
 
 * Parts
     * Uses File I/O, vector class
+
+* Pointer Practice
