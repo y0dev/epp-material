@@ -19,7 +19,7 @@ Part findPartWithID(string,const vector<Part>);
 Part findPartWithName(string,const vector<Part>);
 
 // Output data to file both take a vector as paramater
-void partsArchieve(const vector<Part>);
+void partsArchive(const vector<Part>);
 void quit(const vector<Part>);
 
 /* Main function runs program that has a do while loop to keep
@@ -40,8 +40,8 @@ int main(){
       puts("Enter Q to quit");
 
 
-      // // Get user choice using scanf
-      // scanf("%c", &choice)
+      // Get user choice using scanf
+        scanf("%c", &choice);
 
       // Evaluate user choice using a switch statement
       switch (choice) {
@@ -57,15 +57,15 @@ int main(){
           puts("(1) Find by ID:");
           puts("(2) Find by Part Name");
           int num_choice;
-          scanf("%d\n",&num_choice );
+          scanf("%d",&num_choice );
           // Check situations
           if (num_choice == 1) {
             // If They ask for id
-            char id[10];
+            char id[6];
             puts("Enter ID: ");
             scanf("%s",id);
             Part part = findPartWithID(id,parts);
-            if (part.getName() != "") {
+            if (part.getName().c_str() != "") {
                 printf("%s\n", part.toString().c_str());
             } else {
                 puts("Part wasn\'t found!");
@@ -76,7 +76,7 @@ int main(){
               puts("Enter Part Name: ");
               scanf("%s",name);
               Part part = findPartWithName(name,parts);
-                if (part.getName() != "") {
+                if (part.getName().c_str() != "") {
                     printf("%s\n", part.toString().c_str());
                 } else {
                     puts("Part wasn\'t found!");
@@ -88,16 +88,20 @@ int main(){
           break;
         case 'A':
         case 'a':
-          partsArchieve(parts);
+          partsArchive(parts);
           break;
         case 'Q':
         case 'q':
-          // Quits program and save file at the same time
-          quit(parts);
-          continue_on = false;
+              // Quits program and save file at the same time
+              quit(parts);
+              continue_on = false;
           break;
       }
-    }while (scanf("%c", &choice) != 'Q' || scanf("%c", &choice) != 'q');
+        
+        if (!continue_on) {
+            break;
+        }
+    }while (true);
 
 }
 
@@ -165,6 +169,7 @@ Part findPartWithID(string id,const vector<Part> parts){
         if (p.getID() == id) {
             printf("Part found %s",p.getName().c_str());
             part = p;
+            break;
         }
     }
     return part;
@@ -176,13 +181,14 @@ Part findPartWithName(string name,const vector<Part> parts){
         if (p.getName() == name) {
             printf("Part found %s",p.getName().c_str());
             part = p;
+            break;
         }
     }
     return part;
 }
 
 
-void partsArchieve(const vector<Part> parts){
+void partsArchive(const vector<Part> parts){
   /* Create a output file that erases what
   was there before and update it with new
   data. trunc is the variable that reset
