@@ -47,6 +47,11 @@ Information on the Exam in Programming Proficiency and CPSC 301
 
 * Binary Tree
 
+* Console Practice
+    1. Simple input program
+        * Uses getline() from the string lib
+        * Uses printf() and scanf() from the cstdio lib
+
 * File I/O
 
 * Gymnastic Program
