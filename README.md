@@ -67,3 +67,5 @@ Information on the Exam in Programming Proficiency and CPSC 301
 
 * Pointer Practice
     * Pointer Array Swap
+
+* Templates
