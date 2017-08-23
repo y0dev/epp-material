@@ -45,6 +45,22 @@ int main() {
     floatList.add(4.321);
     floatList.add(8.113);
     
+    
+    intList.addAt(1, 0);
+    intList.addAt(4, 9);
+    
+    stringList.addAt("Hector", 0);
+    stringList.addAt("Mary", 7);
+    
+    charList.addAt('a', 0);
+    charList.addAt('Z', 26);
+    
+    doubleList.addAt(42.21, 0);
+    doubleList.addAt(6.7, 8);
+    
+    floatList.addAt(63.2189, 0);
+    floatList.addAt(792.112, 7);
+    
     // Print list
     intList.print();
     stringList.print();

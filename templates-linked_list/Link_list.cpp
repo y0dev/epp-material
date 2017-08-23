@@ -45,14 +45,15 @@ void Linked_list<t>::addAt(t data,int index){
         head = curr;
     }else if (index == 0 && head != NULL){
         curr->next = head;
+        head = curr;
     }else {
         Node* temp = head;
-        while (temp != NULL || location == index) {
+        while (temp->next != NULL || location == index) {
             temp = temp->next;
             location++;
         }
         
-        temp = curr;
+        temp->next = curr;
     }
     
 }
