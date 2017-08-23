@@ -1,0 +1,214 @@
+To define a function template, use the keyword template, followed by the template type definition:
+template <class T>
+
+We named our template type T, which is a generic data type.
+Tap Continue to learn more!
+
+
+
+template <class T>
+T sum(T a, T b) {
+  return a+b;
+}
+
+int main () {
+    int x=7, y=15;
+    cout << sum(x, y) << endl;
+}
+
+// Outputs 22
+
+
+
+
+
+template <class T>
+T sum(T a, T b) {
+  return a+b;
+}
+
+int main () {
+  double x=7.15, y=15.54;
+  cout << sum(x, y) << endl;
+}
+// Outputs 22.69
+
+
+
+The compiler automatically calls the function for the corresponding type.
+When creating a template type parameter, the keyword typename may be used as an alternative to the keyword class: template <typename T>.
+In this context, the keywords are identical, but throughout this course, we'll use the keyword class.
+
+
+
+Template functions can save a lot of time, because they are written only once, and work with different types.
+Template functions reduce code maintenance, because duplicate code is reduced significantly.
+Enhanced safety is another advantage in using template functions, since it's not necessary to manually copy functions and change types.
+
+
+*
+
+
+Function Templates
+
+Function templates also make it possible to work with multiple generic data types. Define the data types using a comma-separated list.
+Let's create a function that compares arguments of varying data types (an int and a double), and prints the smaller one.
+template <class T, class U>
+
+As you can see, this template declares two different generic data types, T and U.
+
+
+*
+
+
+Function Templates
+
+Now we can continue with our function declaration:
+template <class T, class U>
+T smaller(T a, U b) {
+  return (a < b ? a : b);
+}
+
+The ternary operator checks the a<b condition and returns the corresponding result. The expression (a < b ? a : b) is equivalent to the expression if a is smaller than b, return a, else, return b.
+
+
+*
+
+
+Function Templates
+
+In our main, we can use the function for different data types:
+template <class T, class U>
+T smaller(T a, U b) {
+  return (a < b ? a : b);
+}
+
+int main () {
+  int x=72;
+  double y=15.34;
+  cout << smaller(x, y) << endl;
+}
+
+// Outputs 15
+Try It Yourself
+
+The output converts to an integer, because we specified the function template's return type to be of the same type as the first parameter (T), which is an integer.
+
+
+*
+
+
+Function Templates
+
+T is short for Type, and is a widely used name for type parameters.
+It's not necessary to use T, however; you can declare your type parameters using any identifiers that work for you. The only terms you need to avoid are C++ keywords.
+Remember that when you declare a template parameter, you absolutely must use it in your function definition. Otherwise, the compiler will complain!
+
+
+*
+
+
+Class Templates
+
+Just as we can define function templates, we can also define class templates, allowing classes to have members that use template parameters as types.
+The same syntax is used to define the class template:
+template <class T>
+class MyClass {
+
+};
+
+Just as with function templates, you can define more than one generic data type by using a comma-separated list.
+
+
+
+*
+
+
+Class Templates
+
+As an example, let's create a class Pair, that will be holding a pair of values of a generic type.
+template <class T>
+class Pair {
+ private:
+  T first, second;
+ public:
+  Pair (T a, T b):
+   first(a), second(b) {
+  }
+};
+
+The code above declares a class template Pair, with two private variables of a generic type, and one constructor to initialize the variables.
+
+
+
+*
+
+
+
+
+Class Templates
+
+A specific syntax is required in case you define your member functions outside of your class - for example in a separate source file.
+You need to specify the generic type in angle brackets after the class name.
+For example, to have a member function bigger() defined outside of the class, the following syntax is used:
+template <class T>
+class Pair {
+ private:
+  T first, second;
+ public:
+  Pair (T a, T b):
+   first(a), second(b){
+  }
+  T bigger();
+};
+
+template <class T>
+T Pair<T>::bigger() {
+  // some code
+}
+
+
+
+*
+
+
+
+
+Class Templates
+
+The bigger function returns the greater value of the two member variables.
+template <class T>
+class Pair {
+ private:
+  T first, second;
+ public:
+  Pair (T a, T b):
+   first(a), second(b){
+  }
+  T bigger();
+};
+
+template <class T>
+T Pair<T>::bigger() {
+  return (first>second ? first : second);
+}
+
+
+*
+
+
+
+
+Class Templates
+
+To create objects of the template class for different types, specify the data type in angle brackets, as we did when defining the function outside of the class.
+Here, we create a Pair object for integers.
+Pair <int> obj(11, 22);
+cout << obj.bigger();
+// Outputs 22
+Try It Yourself
+
+We can use the same class to create an object that stores any other type.
+Pair <double> obj(23.43, 5.68);
+cout << obj.bigger();
+// Outputs 23.43
