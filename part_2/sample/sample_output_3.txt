@@ -1,0 +1,31 @@
+S: sign-up
+P: print
+Q: quit
+Enter choice: S
+  Name? Allen
+  CWID? 1000
+  Allen is now a member
+S: sign-up
+P: print
+Q: quit
+Enter choice: S
+  Name? Paula
+  CWID? 2000
+  Paula is now a member
+S: sign-up
+P: print
+Q: quit
+Enter choice: S
+  Name? Roy
+  CWID? 1000
+  a member with that CWID already exists
+S: sign-up
+P: print
+Q: quit
+Enter choice: P
+  1000  Allen
+  2000  Paula
+S: sign-up
+P: print
+Q: quit
+Enter choice: Q
